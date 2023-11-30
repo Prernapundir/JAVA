@@ -1,6 +1,8 @@
+// Time complexity ~ O(1) amortized 
+
 class MyQueue {
-    Stack<Integer> stack1=new Stack<>();
-    Stack<Integer> stack2=new Stack<>();
+    Stack<Integer> stack1=new Stack<>(); // Input stack for push
+    Stack<Integer> stack2=new Stack<>(); // Output stack for peek/pop
 
 
     public MyQueue() {
@@ -12,13 +14,7 @@ class MyQueue {
     }
     
     public int pop() {
-        if(stack2.empty()){
-            while(!stack1.isEmpty()){
-                stack2.add(stack1.peek());
-                stack1.pop();
-            }
-        }
-        
+        peek();
         return stack2.pop();
     }
     
