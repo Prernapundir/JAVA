@@ -9,10 +9,9 @@ class Solution {
                 stack.add(root);
                 root=root.left;
             }else{
-                root=stack.peek();
-                stack.pop();
-                ans.add(root.val);
-                root=root.right;
+                TreeNode node=stack.pop();
+                ans.add(node.val); // Add after all left children
+                root=node.right;
             }
         }
 
