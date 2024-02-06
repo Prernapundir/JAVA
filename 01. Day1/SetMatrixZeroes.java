@@ -1,3 +1,14 @@
+/*
+Approach:
+1. Take two variables for row and col 
+2. Now iterate the whole matrix and mark 0's in the first row 
+3. lly, mark 0's in the first coloum for all the rows
+4. Fill the matrix from the bottom according to the first row and col 0's
+5. Fill row and column separately {becoz there might be the case mat[0][0] becomes 0 becoz of 
+mat[n][0] and if we will row so first row we will fill 0 becoz mat[0][0] is zero , but that's wrong.
+*/
+
+
 class Solution {
     public void setZeroes(int[][] matrix) {
         int m=matrix.length;
