@@ -1,0 +1,39 @@
+class Solution {
+    public void dfs(int source, List<Integer> adj[],boolean[] vis,List<Integer> ans){
+        vis[source]=true;
+        ans.add(source);
+        for(var neigh: adj[source]){
+            if(!vis[neigh]){
+                dfs(neigh,adj,vis,ans);
+            }
+        }
+        return;
+    }
+
+    public List<Integer> dfsOfGraph(int V, List<Integer> adj[]) {
+        boolean[] vis=new boolean[V];
+        List<Integer> ans=new ArrayList<>();
+        dfs(0,adj,vis,ans);
+        return ans;
+    }
+    
+    public List<Integer> bfsOfGraph(int V, List<Integer> adj[]) {
+        boolean[] vis=new boolean[V];
+        Queue<Integer> q=new LinkedList<>();
+        List<Integer> ans=new ArrayList<>();
+        q.add(0);
+        vis[0]=true;
+        while(!q.isEmpty()){
+            int f=q.poll();
+            ans.add(f);
+            for(var neigh: adj[f]){
+                if(!vis[neigh]){
+                    q.add(neigh);
+                    vis[neigh]=true;
+                }
+            }
+        }
+        return ans;
+    }
+}
+
